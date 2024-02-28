@@ -12,21 +12,24 @@
 </head>
 
 <body>
-    <section class="bg-secone">
-        <div class="home-container">
-            <div class="home-secone">
-                <div class="lottie-home">
+<section class="bg-secone">
+    <div class="home-container">
+        <div class="home-secone">
+            <div class="lottie-home" id="lottie-1">
+                <!-- Aquí se renderizará la animación Lottie -->
                 <dotlottie-player src="{{ asset('lottie/01-header.json') }}" background="transparent" speed="1" direction="1" play-mode="normal" loop autoplay></dotlottie-player>
-                </div>
-                <div class="pad-bottom">
-                    <h1>COTIZA<br><span style="font-weight: 300; font-size:50px; font-family:Poppins; color: white">TU PROYECTO</span></h1>
+            </div>
+            <div class="pad-bottom">
+                <h1>COTIZA<br><span style="font-weight: 300; font-size:50px; font-family:Poppins; color: white">TU PROYECTO</span></h1>
 
-                    <p style="color: white;">Obtén un presupuesto aproximado de diseño y desarrollo a la medida.</p>
-                    <button onclick="scrollToSection('section-2')" class="button">COMENZAR &darr;</button>
-                </div>
+                <p style="color: white;">Obtén un presupuesto aproximado de diseño y desarrollo a la medida.</p>
+                <button onclick="scrollToSection('section-2')" class="button">COMENZAR &darr;</button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
     <section id="section-2">
 
         <div class="home-container">
@@ -201,7 +204,7 @@
                 <p>En esta guía, analizamos el proceso de cotización de Selfish, detallando los factores que afectan el costo y ofreciendo consejos para obtener una propuesta competitiva y de alta calidad</p>
                 <button onclick="scrollToSection('section-2')" class="button">QUIERO COTIZAR &uarr;</button>
             </div>
-            <div class="container-left">
+            <div class="container-left" id="lottie-2">
                 <dotlottie-player class="lottie-SEO" src="{{ asset ('lottie/Header.json') }}" background="transparent" speed="1" direction="1" playMode="normal" loop autoplay></dotlottie-player>
             </div>
         </div>
@@ -209,7 +212,7 @@
 
     <section class="general-content">
         <div class="content2-SEO">
-            <div class="container-left">
+            <div class="container-left" id="lottie-3">
                 <dotlottie-player class="lottie-SEO" src="{{ asset ('lottie/Posiciona tu marca.json') }}" background="transparent" speed="1" direction="1" playMode="normal" loop autoplay></dotlottie-player>
             </div>
             <div class="container-right">
@@ -402,6 +405,28 @@
         </script>
     </section>
 </body>
+<!-- Importa la biblioteca Lottie Web -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.12/lottie.min.js"></script>
+<script>
+    const animationPaths = [
+        "{{ asset('lottie/01-header.json') }}",
+        "{{ asset('lottie/Header.json') }}",
+        "{{ asset('lottie/Posiciona tu marca.json') }}",
+        // Agrega más rutas de archivos JSON según sea necesario
+    ];
+
+    animationPaths.forEach((path, index) => {
+        const containerId = `lottie-${index + 1}`;
+        const animation = lottie.loadAnimation({
+            container: document.getElementById(containerId),
+            path: path,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true
+        });
+    });
+</script>
 <script src="{{ asset ('js/scripts.js') }}"></script>
+
 
 </html>
