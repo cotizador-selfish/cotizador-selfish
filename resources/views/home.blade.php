@@ -16,7 +16,7 @@
         <div class="home-container">
             <div class="home-secone">
                 <div class="lottie-home">
-                    <dotlottie-player src="/lottie/01-header.json" background="transparent" speed="1" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+                <dotlottie-player src="{{ asset('lottie/01-header.json') }}" background="transparent" speed="1" direction="1" play-mode="normal" loop autoplay></dotlottie-player>
                 </div>
                 <div class="pad-bottom">
                     <h1>COTIZA<br><span style="font-weight: 300; font-size:50px; font-family:Poppins; color: white">TU PROYECTO</span></h1>
@@ -40,7 +40,7 @@
                 <div class="principal-services">
                     <form action="{{ route('comenzar_cotizacion') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="quotes_histories" value="{{ $dato->ID }}">
+                        <input type="hidden" name="quotes_histories" value="{{ $dato->id }}">
                         <img class="services-img" src="{{ htmlspecialchars($dato->img) }}" alt="">
                         <h5>{{ htmlspecialchars($dato->service) }}</h5>
                         <p>{{ htmlspecialchars($dato->description) }}</p>
