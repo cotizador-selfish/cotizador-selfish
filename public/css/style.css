@@ -360,6 +360,11 @@ header {
     letter-spacing: 1px;
 }
 
+button.button:hover {
+    background-position: 100%;
+    background-image: linear-gradient(135deg, #a18d57 60%, #f8e7aa);
+  }
+
 /* Catalogue SEO*/
 .contentpage-cards {
     display: flex;
@@ -550,7 +555,7 @@ main>.container {
 
 .option-card:hover {
     border-image: linear-gradient(249.86deg, #A18D57 10.73%, #DECC8D 51.8%, #F8E7AA 93.74%) 1;
-    border-width: 3px;
+    border-width: medium;
     border-radius: 10px !important;
 }
 
