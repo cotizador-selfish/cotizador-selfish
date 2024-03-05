@@ -1,96 +1,118 @@
-// Lista para almacenar las selecciones del usuario
 var selecciones = [];
 var cantidadTotal = 0;
 
 // Función para agregar una selección
+/**
+* Adds a selection to the user's list.
+* Validates that key is a string and price is a number.
+* Updates the selected options, total amount, and total input.
+* @param {string} key - The key of the selection.
+* @param {number} price - The price of the selection.
+*/
 function addSelection(key, price) {
-  // Validar que los parámetros sean válidos
-  if (typeof key !== 'string' || isNaN(price)) {
-    console.error("Parámetros inválidos para addSelection: key debe ser una cadena y price debe ser un número.");
-    return;
-  }
-  var seleccion = {
-    key: key,
-    price: price
-  };
-  selecciones.push(seleccion);
-  updateSelectedOptions();
-  updateTotalAmount();
-  updateTotalInput(); // Actualizar el valor oculto del formulario
+ // Validar que los parámetros sean válidos
+ if (typeof key !== 'string' || isNaN(price)) {
+   console.error("Parámetros inválidos para addSelection: key debe ser una cadena y price debe ser un número.");
+   return;
+ }
+
+ // Crear una nueva selección y agregarla a la lista
+ var seleccion = {
+   key: key,
+   price: price
+ };
+ selecciones.push(seleccion);
+
+ // Actualizar las opciones seleccionadas y la cantidad total
+ updateSelectedOptions();
+ updateTotalAmount();
+ updateTotalInput(); // Actualizar el valor oculto del formulario
 }
 
 // Función para alternar la selección de una opción
+/**
+* Toggles the selection of an option.
+* Determines the current page, deselecting all options if on page 2 or 4.
+* Updates the selected class, price, and total amount.
+* @param {string} key - The key of the option.
+* @param {number} price - The price of the option.
+*/
 function toggleSelected(key, price) {
-  var buttonElement = document.getElementById("myButton" + key);
+    var buttonElement = document.getElementById("myButton" + key);
 
-  // Determinar la página actual
-  var currentPage = getCurrentPage();
+    // Determinar la página actual
+    var currentPage = getCurrentPage();
 
-  // Si la página actual es la primera o la cuarta, deseleccionar todas las opciones antes de seleccionar la nueva
-  if (currentPage === 2 || currentPage === 4) {
-    // Deseleccionar todas las opciones
-    selecciones.forEach(function(seleccion) {
-      var oldButtonElement = document.getElementById("myButton" + seleccion.key);
-      oldButtonElement.classList.remove("selected");
-      cantidadTotal -= seleccion.price;
-    });
+    // Si la página actual es la primera o la cuarta, deseleccionar todas las opciones antes de seleccionar la nueva
+    if (currentPage === 2 || currentPage === 4) {
+      // Deseleccionar todas las opciones
+      selecciones.forEach(function(seleccion) {
+        var oldButtonElement = document.getElementById("myButton" + seleccion.key);
+        oldButtonElement.classList.remove("selected");
+        cantidadTotal -= seleccion.price;
+      });
 
-    // Validar que el botón existe
-    if (!buttonElement) {
-      console.error("Botón no encontrado para la clave:", key);
-      return;
+      // Limpiar la lista de selecciones
+      selecciones = [];
     }
-    // Limpiar la lista de selecciones
-    selecciones = [];
+
+    // Alternar la clase selected
+    var isSelected = buttonElement.classList.toggle("selected");
+
+    // Obtener el precio
+    var price = parseFloat(price);
+
+    if (isSelected) {
+      // Si la opción se selecciona, agregar el precio al total
+      cantidadTotal += price;
+
+      // Limpiar la lista de selecciones y agregar la nueva selección
+      selecciones = [{ key: key, price: price }];
+
+      // Actualizar las opciones seleccionadas
+      updateSelectedOptions();
+
+      // Actualizar el total
+      updateTotalAmount();
+    } else {
+      // Si la opción se deselecciona, restar el precio del total
+      cantidadTotal -= price;
+
+      // Eliminar la selección
+      removeSelection(key);
+    }
+
+    // Actualizar la cantidad total en el DOM
+    updateTotalAmount();
   }
-
-  // Alternar la clase selected
-  var isSelected = buttonElement.classList.toggle("selected");
-
-  // Obtener el precio
-  var price = parseFloat(price);
-
-  if (isSelected) {
-    // Si la opción se selecciona, agregar el precio al total
-    cantidadTotal += price;
-    // Limpiar la lista de selecciones y agregar la nueva selección
-    selecciones = [{ key: key, price: price }];
-    updateSelectedOptions();
-  } else {
-    // Si la opción se deselecciona, restar el precio del total
-    cantidadTotal -= price;
-    removeSelection(key);
-  }
-
-  // Actualizar la cantidad total en el DOM
-  updateTotalAmount();
-}
 
 // Función para actualizar las opciones seleccionadas
+/**
+* Updates the selected options in the DOM.
+*/
 function updateSelectedOptions() {
-  var selectedOptionsElement = document.getElementById("selectedOptions");
-  selectedOptionsElement.innerHTML = "";
-
-  selecciones.forEach(function(seleccion) {
-    var optionElement = document.createElement("div");
-    optionElement.textContent = "Producto " + seleccion.key + " - " + formatPrice(seleccion.price) + " MXN";
-    selectedOptionsElement.appendChild(optionElement);
-  });
-}
+    const selectedOptionsElement = document.getElementById("selectedOptions");
+    if (selectedOptionsElement) {
+      selectedOptionsElement.innerHTML = "Selected options: " + selecciones.join(", ");
+    }
+  }
 
 // Función para calcular y mostrar el total
+/**
+* Updates and displays the total amount.
+*/
 function updateTotalAmount() {
-  var totalAmountElements = document.querySelectorAll("#totalAmountValue, #headerTotalAmount");
+    var totalAmountElements = [document.getElementById("totalAmountValue"), document.getElementById("headerTotalAmount")];
 
-  totalAmountElements.forEach(function(element) {
-    element.innerText = formatPrice(cantidadTotal) + " MXN";
-  });
-}
+    totalAmountElements.forEach(function(element) {
+      element.innerText = formatPrice(cantidadTotal) + " MXN";
+    });
+  }
 
 // Función para formatear el precio
 function formatPrice(price) {
-  return price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+    return price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
 // Función para eliminar una selección
 function removeSelection(key) {
@@ -151,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     });
-  });
+  }); // Added semicolon here
 
 function expandirColumna(columna) {
     var tabla = document.getElementById("servicios");
@@ -177,7 +199,7 @@ function expandirColumna(columna) {
     var currentPage = window.location.pathname;
 
     // Determina el paso actual basado en la ruta actual
-    var currentStep = routeToStep[currentPage] || 1;
+    var currentStep = routeToStep[currentPage] || 'Paso 1'; // Asegúrate de que currentStep sea una cadena en todos los casos
 
     // Actualiza la visualización del paso actual y la barra de progreso
     actualizarPasoActual(currentStep);
@@ -191,14 +213,14 @@ function actualizarPasoActual(currentStep) {
     }
 }
 
+const progressBar = document.getElementById("progress-bar");
+
 function actualizarBarraDeProgreso(currentStep) {
-    var totalSteps = 6;
-    var porcentajeCompletado = (currentStep / totalSteps) * 100;
-    var progressBar = document.getElementById("progress-bar");
-    if (progressBar) {
-        progressBar.value = porcentajeCompletado;
-    }
+    const pasoNumerico = parseInt(currentStep.split('/')[0]);
+    const maxSteps = 6; // Número total de pasos
+    progressBar.value = (pasoNumerico / maxSteps) * 100;
 }
+
 
 document.querySelectorAll(".toggle-button.helpme-choose").forEach(function(button) {
   button.addEventListener("click", function() {
@@ -212,7 +234,6 @@ document.querySelectorAll(".toggle-button.helpme-choose").forEach(function(butto
       }
   });
 });
-
 
 
 function enviarFormulario() {
