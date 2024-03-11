@@ -12,47 +12,49 @@
 </head>
 
 <body>
-<section class="bg-secone">
-    <div class="home-container">
-        <div class="home-secone">
-            <div class="lottie-home" id="lottie-1">
-                <!-- Aquí se renderizará la animación Lottie -->
-                <dotlottie-player src="{{ asset('lottie/01-header.json') }}" background="transparent" speed="1" direction="1" play-mode="normal" loop autoplay></dotlottie-player>
-            </div>
-            <div class="pad-bottom">
-                <h1>COTIZA<br><span style="font-weight: 300; font-size:50px; font-family:Poppins; color: white">TU PROYECTO</span></h1>
+    <section class="bg-secone">
+        <div class="home-container">
+            <div class="home-secone">
+                <div class="lottie-home" id="lottie-1">
+                    <!-- Aquí se renderizará la animación Lottie -->
+                    <dotlottie-player src="{{ asset('lottie/01-header.json') }}" background="transparent" speed="1" direction="1" play-mode="normal" loop autoplay></dotlottie-player>
+                </div>
+                <div class="pad-bottom">
+                    <h1>COTIZA<br><span style="font-weight: 300; font-size:50px; font-family:Poppins; color: white">TU PROYECTO</span></h1>
 
-                <p style="color: white;">Obtén un presupuesto aproximado de diseño y desarrollo a la medida.</p>
-                <button onclick="scrollToSection('section-2')" class="button">COMENZAR &darr;</button>
+                    <p style="color: white;">Obtén un presupuesto aproximado de diseño y desarrollo a la medida.</p>
+                    <button onclick="scrollToSection('section-2')" class="button">COMENZAR &darr;</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <section id="section-2">
-
+        @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+        @endif
         <div class="home-container">
             <div class="principal-title">
                 <img class="principal-icon" src="{{ asset ('img/icons/code.svg') }}" alt="">
                 <h3>¿QUÉ TIPO DE PROYECTO REQUIERES PARA TU NEGOCIO?</h3>
                 <p>Selecciona la opción que más se acerque a tus requerimientos.</p>
             </div>
+            @csrf
             <div class="home-services">
-                @foreach ($datos as $dato)
-                <div class="principal-services">
-                    <form action="{{ route('comenzar_cotizacion') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="quotes_histories" value="{{ $dato->id }}">
+                @foreach ($datos as $key => $dato)
+                <a href="{{ $urls[$key] ?? '#' }}">
+                    <div class="principal-services">
                         <img class="services-img" src="{{ htmlspecialchars($dato->img) }}" alt="">
                         <h5>{{ htmlspecialchars($dato->service) }}</h5>
                         <p>{{ htmlspecialchars($dato->description) }}</p>
                         <div>
                             <p>Desde: ${{ htmlspecialchars($dato->price) }}</p>
                         </div>
-                        <button type="submit">Comenzar Cotización</button>
-                    </form>
-                </div>
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>

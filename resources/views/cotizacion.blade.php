@@ -31,8 +31,7 @@
             <tbody>
                 <!-- Aquí se irán agregando las filas automáticamente -->
                 <tr>
-                    <P>TIPO DE PROYECTO</P>
-                    <p>{{ $servicio->service }}</p>
+
                 </tr>
 
             </tbody>

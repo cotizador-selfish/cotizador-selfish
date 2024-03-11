@@ -12,30 +12,26 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $datos = Services::all();
 
-        $url = [
-            "/panel2"
+        $urls = [
+            "/page-web/panel2",
+            "/page-lading/lading2",
+            "/product-catalog/catalog2",
+            "/e-commerce/e-commerce2",
+            "/custom-system/custom2",
+            "https://selfish.com.mx/servicios"
         ];
+
+        // Verificamos si la cantidad de URLs coincide con la cantidad de servicios
+        if (count($datos) !== count($urls)) {
+            // Si no coinciden, lanzamos una excepción o ajustamos la lógica según sea necesario
+            throw new \Exception("La cantidad de servicios y URLs no coincide");
+        }
+
         $title = "Home";
 
-        return view('home', [
-            'title' => $title,
-            'datos' => $datos,
-            'urls' => $url,
-        ]);
-    }
-
-    public function startquote(Request $request)
-    {
-        // Recuperar el ID del proyecto desde la solicitud
-        $proyecto_id = $request->input('quotes_histories');
-
-        // Guardar el ID del proyecto en la sesión
-        $request->session()->put('proyecto_id', $proyecto_id);
-
-        // Redirigir al usuario a la siguiente vista
-        return redirect()->route('panel2');
+        return view('home', compact('title', 'datos', 'urls'));
     }
 }
+

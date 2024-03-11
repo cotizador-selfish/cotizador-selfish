@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\NoCache;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Panel2Controller;
 use App\Http\Controllers\Panel3Controller;
 use App\Http\Controllers\Panel4Controller;
 use App\Http\Controllers\Panel5Controller;
-use App\Http\Controllers\Panel6Controller;
+use App\Http\Controllers\CotizacionController;
+use App\Http\Controllers\ServicioController;
+use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
@@ -41,13 +44,22 @@ Route::get('/', function () {
 Route::redirect('/', '/home');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/comenzar-cotizacion', [HomeController::class, 'startquote'])->name('comenzar_cotizacion');
-Route::get('/panel2', [Panel2Controller::class, 'index'])->name('panel2');
+Route::post('/iniciar-cotizacion', [CotizacionController::class, 'iniciarCotizacion'])
+     ->middleware(NoCache::class)
+     ->name('iniciar-cotizacion');
 
-Route::get('/panel3', [Panel3Controller::class, 'index'])->name('panel3');
-Route::get('/panel4', [Panel4Controller::class, 'index'])->name('panel4');
-Route::get('/panel5', [Panel5Controller::class, 'index'])->name('panel5');
-Route::get('/panel6', [Panel6Controller::class, 'index'])->name('panel6');
+Route::get('/cotizacion/retroceder/{paginaActual}', [CotizacionController::class, 'retroceder'])->name('cotizacion.retroceder');
+
+
+Route::get('/page-web/panel2', [Panel2Controller::class, 'index'])->name('panel2');
+
+Route::get('/page-web/panel3', [Panel3Controller::class, 'index'])->name('panel3');
+Route::get('/page-web/panel4', [Panel4Controller::class, 'index'])->name('panel4');
+Route::get('/page-web/panel5', [Panel5Controller::class, 'index'])->name('panel5');
+
+
+Route::get('/ver-cotizacion/{id}', 'CotizacionController@verCotizacion');
+
 
 
 
