@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Lading6Controller extends Controller
+class Product3Controller extends Controller
 {
     public function index()
     {
-        $title = "Proporcionar las traducciones";
+        $title = "El slider es un carrusel";
 
-        return view('/page-lading/lading6', [
+        return view('/product-catalog/product3', [
             'title' => $title,
         ]);
     }

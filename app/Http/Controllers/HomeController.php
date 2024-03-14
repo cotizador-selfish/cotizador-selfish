@@ -17,8 +17,8 @@ class HomeController extends Controller
         $urls = [
             "/page-web/panel2",
             "/page-lading/lading2",
-            "/product-catalog/catalog2",
-            "/e-commerce/e-commerce2",
+            "/product-catalog/product2",
+            "/e-commerce/ecommerce2",
             "/custom-system/custom2",
             "https://selfish.com.mx/servicios"
         ];

@@ -1,17 +1,21 @@
+<!-- Includes the header template. -->
 @include('templates.header')
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale.0">
     <title>{{ $title }}</title>
+    <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 </head>
 <body>
 <section>
         <div class="card-structure">
             <div class="principal-title">
                 <img class="principal-icon" src="{{ asset ('img/icons/5.svg') }}" alt="">
-                <h3>¿En cuantos idiomas estará desarrollada la landing page?</h3>
+                <h3>¿En cuantos idiomas estará desarrollada el catálogo en línea?</h3>
                 <p>Considera que ustedes nos deben de proporcionar las traducciones de todos los textos.</p>
             </div>
         </div>

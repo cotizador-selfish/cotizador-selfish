@@ -585,7 +585,6 @@ main>.container {
 }
 
 @media screen and (max-width: 767px) {
-
     .back-btn,
     .next-btn {
         width: auto;
@@ -756,7 +755,9 @@ th {
     display: flex;
     padding-top: 10px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .option-hscard {
@@ -894,4 +895,58 @@ th {
     height: 57px;
     background-color: #000;
     color: white;
+}
+
+/* page-lading*/
+
+.gral-content-lading {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 900px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 5%;
+}
+
+@media (max-width: 768px) {
+    .gral-content-lading {
+        display: flex;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* page-ecommerce */
+.gral-content-ecommerce {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 5%;
+}
+
+@media (max-width: 768px) {
+    .gral-content-ecommerce {
+        display: flex;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.option-card-ecommerce {
+    width: 250px;
+    height: 130px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.option-card-ecommerce:hover {
+    border-image: linear-gradient(249.86deg, #A18D57 10.73%, #DECC8D 51.8%, #F8E7AA 93.74%) 1;
+    border-width: medium;
+    border-radius: 10px !important;
 }

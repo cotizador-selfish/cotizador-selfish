@@ -51,10 +51,4 @@ class CotizacionController extends Controller
         return redirect()->route('cotizacion.home');
     }
 
-    public function mostrarPagina()
-    {
-        $paginaActual = "panel2";
-
-        return view('panel2')->with('paginaActual', $paginaActual);
-    }
 }

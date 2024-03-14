@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Lading6Controller extends Controller
+class Ecommerce5Controller extends Controller
 {
     public function index()
     {
-        $title = "Proporcionar las traducciones";
+        $title = 'Funciones del sitio web';
 
-        return view('/page-lading/lading6', [
+        return view('/e-commerce/ecommerce5', [
             'title' => $title,
         ]);
     }

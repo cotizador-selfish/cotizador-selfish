@@ -11,7 +11,7 @@ class Lading3Controller extends Controller
     {
         $title = "Cargo directo";
 
-        return view('lading3', [
+        return view('/page-lading/lading3', [
             'title' => $title,
         ]);
     }

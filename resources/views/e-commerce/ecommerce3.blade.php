@@ -1,53 +1,54 @@
 @include('templates.header')
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
+    <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 </head>
+
 <body>
-<section>
+    <section>
         <div class="card-structure">
             <div class="principal-title">
                 <img class="principal-icon" src="{{ asset ('img/icons/5.svg') }}" alt="">
-                <h3>¿En cuantos idiomas estará desarrollada la landing page?</h3>
-                <p>Considera que ustedes nos deben de proporcionar las traducciones de todos los textos.</p>
+                <h3>Funciones de e-ecommerce</h3>
+                <p>Selecciona todas las funciones adicionales que te gustaría incluir en tu sitio e-ecommerce.</p>
             </div>
         </div>
     </section>
-    <section class="gral-content-lading">
-
+    <section class="gral-content-ecommerce">
         <div>
             <input type="hidden">
-            <div class="option-card">
+            <div class="option-card-ecommerce">
                 <div style="border-bottom: 1px solid #000;">
                     <img src="/img/dots_icon.png" alt="">
                 </div>
-                <h3 style="text-align: center; margin-top: 25px;">Un idioma</h3>
+                <h5 style="text-align: center;margin-top: 15px;padding: 10px;">Integración para pagos con tarjetas de crédito y débito</h5>
             </div>
         </div>
 
         <div>
             <input type="hidden">
-            <div class="option-card">
+            <div class="option-card-ecommerce">
                 <div style="border-bottom: 1px solid #000;">
                     <img src="/img/dots_icon.png" alt="">
                 </div>
-                <h3 style="text-align: center; margin-top: 25px;">Dos idiomas</h3>
+                <h5 style="text-align: center;margin-top: 15px;padding: 10px;">Cálculo de envíos en tiempo real de acuerdo a las reglas de tu negocio</h5>
             </div>
         </div>
 
         <div>
             <input type="hidden">
-            <div class="option-card">
+            <div class="option-card-ecommerce">
                 <div style="border-bottom: 1px solid #000;">
                     <img src="/img/dots_icon.png" alt="">
                 </div>
-                <h3 style="text-align: center; margin-top: 25px;">Tres idiomas</h3>
+                <h5 style="text-align: center;margin-top: 15px;padding: 10px;">Integración de facturación CFDI</h5>
             </div>
         </div>
-
     </section>
     <section>
         <div class="btn-space">

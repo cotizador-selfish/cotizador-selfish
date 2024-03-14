@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HostAndSecurity;
 use Illuminate\Http\Request;
 
-class Lading7Controller extends Controller
+class Product6Controller extends Controller
 {
     public function index()
     {
@@ -14,7 +14,7 @@ class Lading7Controller extends Controller
 
         $title = "Opciones de hosting y de seguridad";
 
-        return view('/page-lading/lading7', [
+        return view('/product-catalog/product6', [
             'title' => $title,
             'datos' => $datos,
         ]);

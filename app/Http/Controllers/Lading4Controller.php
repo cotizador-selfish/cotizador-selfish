@@ -11,7 +11,7 @@ class Lading4Controller extends Controller
     {
         $title = "Evento o información";
 
-        return view('lading4', [
+        return view('/page-lading/lading4', [
             'title' => $title,
         ]);
     }

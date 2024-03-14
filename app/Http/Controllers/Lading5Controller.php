@@ -11,7 +11,7 @@ class Lading5Controller extends Controller
     {
         $title = "Imágenes con enlaces";
 
-        return view('lading5', [
+        return view('/page-lading/lading5', [
             'title' => $title,
         ]);
     }

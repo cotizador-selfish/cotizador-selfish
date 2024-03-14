@@ -11,7 +11,7 @@ class Lading2Controller extends Controller
     {
         $title = "Campaña de lanzamiento";
 
-        return view('lading2', [
+        return view('/page-lading/lading2', [
             'title' => $title,
         ]);
     }
