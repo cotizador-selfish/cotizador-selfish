@@ -29,7 +29,7 @@
             <button class="toggle-button helpme-choose" data-target="{{ $key }}">Ayúdame a elegir</button>
         </div>
         <div class="option-container">
-            <form action="{{ route('comenzar_cotizacion') }}" method="POST">
+            <form action="{{ route('crear') }}" method="POST">
                 @csrf
                 <input type="hidden" name="quotes_histories" value="{{ $dato->ID }}">
                 <div class="option-row option-hscard" id="myButton{{ $key }}" onclick="toggleSelected('{{ $key }}', '{{ $dato->price }}')">
@@ -69,15 +69,13 @@
     <section>
         <div class="btn-space">
             <form action="/panel4">
-                <button class="back-btn">&#129044; ANTERIOR</button>
+                <button class="back-btn" onclick="window.location.href = '/page-web/panel4';">&#129044; ANTERIOR</button>
             </form>
             <div class="price-service" id="cantidadTotal">
                 <h4 id="totalAmountValue">0.00 MXN</h4>
                 <p style="color:#999999;">*Precio aplicable en México</p>
             </div>
-            <form action="{{ route('comenzar_cotizacion') }}" method="POST">
-                <button type="submit" class="next-btn">SIGUIENTE &#10142;</button>
-            </form>
+                <button type="submit" class="next-btn" onclick="window.location.href = '/cotizacion';">SIGUIENTE &#10142;</button>
         </div>
     </section>
 </body>

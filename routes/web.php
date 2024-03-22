@@ -26,6 +26,15 @@ use App\Http\Controllers\Ecommerce4Controller;
 use App\Http\Controllers\Ecommerce5Controller;
 use App\Http\Controllers\Ecommerce6Controller;
 use App\Http\Controllers\Ecommerce7Controller;
+use App\Http\Controllers\Custom2Controller;
+use App\Http\Controllers\Custom3Controller;
+use App\Http\Controllers\Custom4Controller;
+use App\Http\Controllers\Custom5Controller;
+use App\Http\Controllers\Custom6Controller;
+use App\Http\Controllers\Custom7Controller;
+use App\Http\Controllers\Custom8Controller;
+use App\Http\Controllers\Custom9Controller;
+use App\Http\Controllers\Custom10Controller;
 use App\Http\Controllers\ServicioController;
 use Illuminate\Http\Request;
 
@@ -60,12 +69,6 @@ Route::get('/', function () {
 /* Rutas para el modulo de home */
 Route::redirect('/', '/home');
 
-/* Rutas para el modulo de cotizacion */
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/iniciar-cotizacion', [CotizacionController::class, 'iniciarCotizacion'])->middleware(NoCache::class)->name('iniciar-cotizacion');
-Route::get('/cotizacion/retroceder/{paginaActual}', [CotizacionController::class, 'retroceder'])->name('cotizacion.retroceder');
-Route::get('/ver-cotizacion/{id}', 'CotizacionController@verCotizacion');
-
 /* Rutas para el modulo de page-web */
 Route::get('/page-web/panel2', [Panel2Controller::class, 'index'])->name('panel2');
 Route::get('/page-web/panel3', [Panel3Controller::class, 'index'])->name('panel3');
@@ -96,6 +99,24 @@ Route::get('/e-commerce/ecommerce6', [Ecommerce6Controller::class, 'index'])->na
 Route::get('/e-commerce/ecommerce7', [Ecommerce7Controller::class, 'index'])->name('ecommerce7');
 
 /* Rutas para el modulo de custom-system */
+Route::get('/custom-system/custom2', [Custom2Controller::class, 'index'])->name('custom2');
+Route::get('/custom-system/custom3', [Custom3Controller::class, 'index'])->name('custom3');
+Route::get('/custom-system/custom4', [Custom4Controller::class, 'index'])->name('custom4');
+Route::get('/custom-system/custom5', [Custom5Controller::class, 'index'])->name('custom5');
+Route::get('/custom-system/custom6', [Custom6Controller::class, 'index'])->name('custom6');
+Route::get('/custom-system/custom7', [Custom7Controller::class, 'index'])->name('custom7');
+Route::get('/custom-system/custom8', [Custom8Controller::class, 'index'])->name('custom8');
+Route::get('/custom-system/custom9', [Custom9Controller::class, 'index'])->name('custom9');
+Route::get('/custom-system/custom10', [Custom10Controller::class, 'index'])->name('custom10');
+
+/* Ruta para la cotizacion */
+Route::get('/cotizacion', [CotizacionController::class, 'index'])->name('cotizacion');
+
+/* Ruta para crear cotizacion */
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/crear', [CotizacionController::class, 'crear'])->middleware(NoCache::class)->name('crear');
+Route::get('/read/{id}', 'CotizacionController@read');
+
 
 
 

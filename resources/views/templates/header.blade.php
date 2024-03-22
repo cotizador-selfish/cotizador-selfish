@@ -31,7 +31,7 @@
 <body>
     <!-- Contenido del header, como navegación, logo, etc. -->
     <header class="header-content" id="header">
-    <a href="" title="Selfish">
+    <a href="/home" title="Selfish">
         <img class="logo-mobile-sticky scale-with-grid" src="https://cdn.selfish.com.mx/wp-content/uploads/2019/06/sselfish-logo-sticky-1.png" data-retina="https://cdn.selfish.com.mx/wp-content/uploads/2019/06/sselfish-logo-sticky-1.png" data-height="114" alt="sselfish-logo-sticky" data-no-retina="" style="max-height: 70px;">
     </a>
     <div class="progressbar-titles">

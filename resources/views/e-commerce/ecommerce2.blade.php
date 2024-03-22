@@ -7,44 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
-    <style>
-        .custom-select {
-            position: relative;
-        }
-
-        .custom-select select {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 100%;
-            font-size: 18px;
-            padding: 5px 10px 5px 10px;
-            background-color: #FFFFFF;
-            border: 1px solid #C4D1EB;
-            border-radius: 5px;
-            color: #000000;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .custom-select select:focus {
-            background: #F2F2F2;
-            border: 1px solid #5A7EC7;
-            border-radius: 5px;
-        }
-
-        .custom-select::after {
-            content: "";
-            position: absolute;
-            pointer-events: none;
-            top: 50%;
-            right: 10px;
-            transform: translate(0, -50%);
-            width: 12px;
-            height: 12px;
-            background-color: #000000;
-            clip-path: polygon(8% 17%, 0% 25%, 50% 84%, 100% 25%, 92% 17%, 50% 65%);
-        }
-    </style>
 </head>
 
 <body>
@@ -57,26 +19,28 @@
             </div>
         </div>
     </section>
-    <section class="gral-content-ecommerce">
-        <div class="custom-select">
+    <section class="content-ecommerce">
+        <div class="custom-select" style="display: grid;">
+            <h4>Selecciona la cantidad de productos</h4>
             <select>
-                <option>Select Country</option>
-                <option>Australia</option>
-                <option>New Zealand</option>
-                <option>United Kingdom</option>
-                <option>United States</option>
+                <option>0 a 10 productos</option>
+                <option>11 a 50 productos</option>
+                <option>51 a 100 productos</option>
+                <option>101 a 500 productos</option>
+                <option>501 a 1,000 productos</option>
+                <option>1,001 a 5,000 productos</option>
+                <option>5,001 a 10,000 productos</option>
             </select>
-            <div class="select-arrow"></div>
         </div>
     </section>
     <section>
         <div class="btn-space">
-            <button type="button" class="back-btn">&#129044; ANTERIOR</button>
+            <button type="button" class="back-btn" onclick="window.location.href = '/home';">&#129044; ANTERIOR</button>
             <div class="price-service" id="cantidadTotal">
                 <h4 id="totalAmountValue">0.00 MXN</h4>
                 <p style="color:#999999;">*Precio aplicable en México</p>
             </div>
-            <button type="submit" class="next-btn">SIGUIENTE &#10142;</button>
+            <button type="submit" class="next-btn" onclick="window.location.href = '/e-commerce/ecommerce3';">SIGUIENTE &#10142;</button>
         </div>
     </section>
 </body>

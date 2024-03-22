@@ -19,45 +19,42 @@
             </div>
         </div>
     </section>
-    <section class="gral-content-ecommerce">
-        <div>
-            <input type="hidden">
-            <div class="option-card-ecommerce">
-                <div style="border-bottom: 1px solid #000;">
-                    <img src="/img/dots_icon.png" alt="">
+    <section class="features-content">
+        <div class="feature-marg">
+            <a style="text-decoration: none;">
+                <div class="feature-c-ecommerce">
+                        <div class="feature-card-ecommerce">
+                            <img class="feature-img" src="{{ asset ('img/credit-card.svg') }}" alt="Product Image" />
+                            <h5>Integración para pagos con tarjetas de crédito y débito</h5>
+                        </div>
                 </div>
-                <h5 style="text-align: center;margin-top: 15px;padding: 10px;">Integración para pagos con tarjetas de crédito y débito</h5>
-            </div>
-        </div>
-
-        <div>
-            <input type="hidden">
-            <div class="option-card-ecommerce">
-                <div style="border-bottom: 1px solid #000;">
-                    <img src="/img/dots_icon.png" alt="">
+            </a>
+            <a style="text-decoration: none;">
+                <div class="feature-c-ecommerce">
+                        <div class="feature-card-ecommerce">
+                            <img class="feature-img" src="{{ asset ('img/shipping.svg') }}" alt="Product Image" />
+                            <h5>Cálculo de envíos en tiempo real de acuerdo a las reglas de tu negocio</h5>
+                        </div>
                 </div>
-                <h5 style="text-align: center;margin-top: 15px;padding: 10px;">Cálculo de envíos en tiempo real de acuerdo a las reglas de tu negocio</h5>
-            </div>
-        </div>
-
-        <div>
-            <input type="hidden">
-            <div class="option-card-ecommerce">
-                <div style="border-bottom: 1px solid #000;">
-                    <img src="/img/dots_icon.png" alt="">
+            </a>
+            <a style="text-decoration: none;">
+                <div class="feature-c-ecommerce">
+                        <div class="feature-card-ecommerce">
+                            <img class="feature-img" src="{{ asset ('img/bill.svg') }}" alt="Product Image" />
+                            <h5>Integración de facturación CFDI</h5>
+                        </div>
                 </div>
-                <h5 style="text-align: center;margin-top: 15px;padding: 10px;">Integración de facturación CFDI</h5>
-            </div>
+            </a>
         </div>
     </section>
     <section>
         <div class="btn-space">
-            <button type="button" class="back-btn">&#129044; ANTERIOR</button>
+            <button type="button" class="back-btn" onclick="window.location.href = '/e-commerce/ecommerce2';">&#129044; ANTERIOR</button>
             <div class="price-service" id="cantidadTotal">
                 <h4 id="totalAmountValue">0.00 MXN</h4>
                 <p style="color:#999999;">*Precio aplicable en México</p>
             </div>
-            <button type="submit" class="next-btn">SIGUIENTE &#10142;</button>
+            <button type="submit" class="next-btn" onclick="window.location.href = '/e-commerce/ecommerce4';">SIGUIENTE &#10142;</button>
         </div>
     </section>
 </body>

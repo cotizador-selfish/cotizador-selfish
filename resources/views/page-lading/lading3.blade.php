@@ -52,12 +52,12 @@
     </section>
     <section>
         <div class="btn-space">
-            <button type="button" class="back-btn">&#129044; ANTERIOR</button>
+            <button type="button" class="back-btn" onclick="window.location.href = '/page-lading/lading2';">&#129044; ANTERIOR</button>
             <div class="price-service" id="cantidadTotal">
                 <h4 id="totalAmountValue">0.00 MXN</h4>
                 <p style="color:#999999;">*Precio aplicable en México</p>
             </div>
-            <button type="submit" class="next-btn">SIGUIENTE &#10142;</button>
+            <button type="submit" class="next-btn" onclick="window.location.href = '/page-lading/lading4';">SIGUIENTE &#10142;</button>
         </div>
     </section>
 </body>
