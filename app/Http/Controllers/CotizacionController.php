@@ -19,7 +19,7 @@ class CotizacionController extends Controller
     }
     public function __construct()
     {
-        $this->middleware(NoCache::class);
+        //$this->middleware(NoCache::class);
     }
 
     public function crear()
