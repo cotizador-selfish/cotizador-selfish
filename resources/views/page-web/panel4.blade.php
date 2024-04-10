@@ -22,7 +22,7 @@
     <section class="gral-content">
         @foreach ($datos as $key => $dato)
         <a style="text-decoration: none;">
-            <form action="{{ route('comenzar_cotizacion') }}" method="POST">
+            <form action="{{ route('crear') }}" method="POST">
                 @csrf
                 <input type="hidden" name="quotes_histories" value="{{ $dato->ID }}">
                 <div class="option-card" id="myButton{{ $key }}" onclick="toggleSelected('{{ $key }}', '{{ $dato->price }}')">
@@ -39,14 +39,14 @@
     <section>
         <div class="btn-space">
             <form action="/panel3">
-                <button class="back-btn">&#129044; ANTERIOR</button>
+                <button class="back-btn" onclick="window.location.href = '/page-web/panel3';">&#129044; ANTERIOR</button>
             </form>
             <div class="price-service" id="cantidadTotal">
                 <h4 id="totalAmountValue">0.00 MXN</h4>
                 <p style="color:#999999;">*Precio aplicable en México</p>
             </div>
-            <form action="{{ route('comenzar_cotizacion') }}" method="POST">
-                <button type="submit" class="next-btn">SIGUIENTE &#10142;</button>
+            <form action="{{ route('crear') }}" method="POST">
+                <button type="submit" class="next-btn" onclick="window.location.href = '/page-web/panel5';">SIGUIENTE &#10142;</button>
             </form>
         </div>
     </section>

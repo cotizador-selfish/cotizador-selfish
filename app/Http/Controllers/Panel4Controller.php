@@ -18,22 +18,10 @@ class Panel4Controller extends Controller
 
         $title = "Redacción de contenidos";
 
-        return view('panel4', [
+        return view('/page-web/panel4', [
             'title' => $title,
             'datos' => $datos,
         ]);
     }
-
-    public function startquote(Request $request)
-{
-    // Obtiene el ID del proyecto seleccionado de la sesión
-    $proyecto_id = Session::get('proyecto_id');
-
-    // Aquí puedes hacer cualquier otra lógica necesaria antes de pasar a la vista panel3
-
-    // Redirige al usuario a la ruta correspondiente para la vista panel4
-    return redirect()->route('Panel5');
-}
-
 
 }

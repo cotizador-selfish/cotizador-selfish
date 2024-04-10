@@ -31,8 +31,7 @@
             <tbody>
                 <!-- Aquí se irán agregando las filas automáticamente -->
                 <tr>
-                    <P>TIPO DE PROYECTO</P>
-                    <p>{{ $servicio->service }}</p>
+
                 </tr>
 
             </tbody>
@@ -41,8 +40,8 @@
 
     <section style="padding-top: 50px;">
         <div class="btn-space">
-            <form action="/panel5">
-                <button class="back-btn">&#129044; ANTERIOR</button>
+            <form>
+                <button class="next-btn">SOLICITAR COTIZACIÓN</button>
             </form>
             <div class="price-service" id="cantidadTotal">
                 <h4 id="totalAmountValue">0.00 MXN</h4>

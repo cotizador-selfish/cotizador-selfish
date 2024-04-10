@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 </head>
@@ -29,22 +28,20 @@
             <button class="toggle-button helpme-choose" data-target="{{ $key }}">Ayúdame a elegir</button>
         </div>
         <div class="option-container">
-            <form action="{{ route('comenzar_cotizacion') }}" method="POST">
-                @csrf
-                <input type="hidden" name="quotes_histories" value="{{ $dato->ID }}">
-                <div class="option-row option-hscard" id="myButton{{ $key }}" onclick="toggleSelected('{{ $key }}', '{{ $dato->price }}')">
-                    <img class="option-img" src="{{ htmlspecialchars($dato->img) }}" alt="Descripción de la imagen">
-                    <div class="option-text">
-                        <h4 style="margin-top:0px; margin-bottom: 10px; color:#000; text-transform: uppercase;">{{ htmlspecialchars($dato->title) }}</h4>
-                        <p style="margin-top: -5px">{{ htmlspecialchars($dato->description) }}</p>
-                    </div>
-                    <div class="option-discount">
-                        <p>{{ htmlspecialchars($dato->discount_hs) }}</p>
-                        <p>$ {{ htmlspecialchars(number_format($dato->price, 2, '.', ',')) }} MXN</p>
-                    </div>
+            @csrf
+            <input type="hidden" name="quotes_histories" value="{{ $dato->ID }}">
+            <div class="option-row option-hscard" id="myButton{{ $key }}" onclick="toggleSelected('{{ $key }}', '{{ $dato->price }}')">
+                <img class="option-img" src="{{ htmlspecialchars($dato->img) }}" alt="Descripción de la imagen">
+                <div class="option-text">
+                    <h4 style="margin-top:0px; margin-bottom: 10px; color:#000; text-transform: uppercase;">{{ htmlspecialchars($dato->title) }}</h4>
+                    <p style="margin-top: -5px">{{ htmlspecialchars($dato->description) }}</p>
                 </div>
-                <button class="btn-no">NO GRACIAS</button>
-            </form>
+                <div class="option-discount">
+                    <p>{{ htmlspecialchars($dato->discount_hs) }}</p>
+                    <p>$ {{ htmlspecialchars(number_format($dato->price, 2, '.', ',')) }} MXN</p>
+                </div>
+            </div>
+            <button class="btn-no">NO GRACIAS</button>
         </div>
         <div class="help-container">
             <div id="acordeon{{ $key }}" class="help-content" style="display: none;">
@@ -68,20 +65,15 @@
     </section>
     <section>
         <div class="btn-space">
-            <form action="/panel4">
-                <button class="back-btn">&#129044; ANTERIOR</button>
-            </form>
+            <button type="button" class="back-btn" onclick="window.location.href = '/e-commerce/ecommerce6';">&#129044; ANTERIOR</button>
             <div class="price-service" id="cantidadTotal">
                 <h4 id="totalAmountValue">0.00 MXN</h4>
                 <p style="color:#999999;">*Precio aplicable en México</p>
             </div>
-            <form action="{{ route('comenzar_cotizacion') }}" method="POST">
-                <button type="submit" class="next-btn">SIGUIENTE &#10142;</button>
-            </form>
+            <button type="submit" class="next-btn" onclick="window.location.href = '/cotizacion';">SIGUIENTE &#10142;</button>
         </div>
     </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset ('js/scripts.js') }}"></script>
-
 </html>

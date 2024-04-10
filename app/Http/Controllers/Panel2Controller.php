@@ -17,16 +17,16 @@ class Panel2Controller extends Controller
         $datos = ContentPages::all();
         $title = "Páginas de contenido";
 
-        return view('panel2', [
+        return view('/page-web/panel2', [
             'title' => $title,
             'datos' => $datos,
         ]);
     }
 
-    public function startquote(Request $request)
+    public function crearCotizacion(Request $request)
     {
         $proyecto_id = $request->input('quotes_histories');
         dd($proyecto_id); // Esto mostrará el valor del proyecto y detendrá la ejecución del código
-        // Resto del código...
+
     }
 }
