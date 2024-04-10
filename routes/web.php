@@ -68,6 +68,7 @@ Route::get('/', function () {
 */
 /* Rutas para el modulo de home */
 Route::redirect('/', '/home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 /* Rutas para el modulo de page-web */
 Route::get('/page-web/panel2', [Panel2Controller::class, 'index'])->name('panel2');
@@ -112,10 +113,9 @@ Route::get('/custom-system/custom10', [Custom10Controller::class, 'index'])->nam
 /* Ruta para la creacion de la cotizacion */
 Route::post('/crear_cotizacion', [CotizacionController::class, 'crear'])->name('crear_cotizacion');
 
-/* Ruta para crear cotizacion */
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/crear', [CotizacionController::class, 'crear'])->middleware(NoCache::class)->name('crear');
-Route::get('/read/{id}', 'CotizacionController@read');
+/* Ruta para mostrar la cotizacion */
+Route::get('/cotizacion/{id}', 'CotizacionController@mostrar')->name('mostrar');
+
 
 
 

@@ -15,10 +15,10 @@ class HomeController extends Controller
         $datos = Services::all();
 
         $urls = [
-            "/page-web/panel2",
             "/page-lading/lading2",
-            "/product-catalog/product2",
+            "/page-web/panel2",
             "/e-commerce/ecommerce2",
+            "/product-catalog/product2",
             "/custom-system/custom2",
             "https://selfish.com.mx/servicios"
         ];
