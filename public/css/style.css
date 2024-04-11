@@ -171,11 +171,12 @@ header {
 .btn-save {
     padding: 8px 30px 8px 30px;
     gap: 8px;
-    width: 200px;
-    height: 37px;
+    width: 170px;
+    height: 53px;
     border: 1px solid white;
     color: white;
     background-color: black;
+    font-weight: 600;
     font-size: 15px;
     text-decoration: none;
     transition: color .4s, background-image .4s, background-position .4s;
@@ -1090,3 +1091,31 @@ input:valid+span:after {
     font-size: 22px;
     gap: 0px;
 }
+
+
+.round-button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    border: 2px solid;
+    text-align: center;
+    background-color: #FFFFFF;
+    color: #A18D57;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.round-button:hover {
+    border-color: #F7F7F7;
+    color: #FFFFFF;
+    background: #DECC8D;
+}
+
+
+

@@ -41,21 +41,36 @@
                 <h3>¿QUÉ TIPO DE PROYECTO REQUIERES PARA TU NEGOCIO?</h3>
                 <p>Selecciona la opción que más se acerque a tus requerimientos.</p>
             </div>
-            @csrf
-            <div class="home-services">
-                @foreach ($datos as $key => $dato)
-                <a href="{{ $urls[$key] ?? '#' }}">
-                    <div class="principal-services">
+            <form method="POST" action="{{ route('crear_cotizacion') }}" id="formCotizacion">
+                @csrf
+                <div class="home-services">
+                    @foreach ($datos->take(5) as $dato)
+                    <div class="principal-services" onclick="seleccionarServicio('{{ $dato->ID }}')">
                         <img class="services-img" src="{{ htmlspecialchars($dato->img) }}" alt="">
                         <h5>{{ htmlspecialchars($dato->service) }}</h5>
-                        <p style="font-family: 'Poppins', sans-serif !important; font-size: 14px; font-weight: 400; line-height: 21px; text-align: center;">{{ htmlspecialchars($dato->description) }}</p>
-                        <div>
-                            <p style="display: none;">Desde: ${{ htmlspecialchars($dato->price) }}</p>
-                        </div>
+                        <p style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; text-align: center;">{{ htmlspecialchars($dato->description) }}</p>
+                        <p style="display: none;">Desde: ${{ htmlspecialchars($dato->price) }}</p>
                     </div>
-                </a>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+
+                <!-- Campo oculto para almacenar el ID del servicio seleccionado -->
+                <input type="hidden" id="id_service" name="id_service">
+
+                <!-- Botón "Enviar Cotización" -->
+                <button type="button" id="btnEnviar" onclick="enviarCotizacion()" style="display: none;">Enviar Cotización</button>
+            </form>
+            <a href="https://selfish.com.mx/servicios">
+                <div class="principal-services">
+                    <img class="services-img" src="https://cotizador.selfish.com.mx/public/img/Otros.webp" alt="">
+                    <h5>Otros servicios</h5>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; text-align: center;">Aplicaciones moviles, Branding, Motion graphics, etc.</p>
+                    <div>
+                        <p style="display: none;">Desde: </p>
+                    </div>
+                </div>
+            </a>
+        </div>
         </div>
 
     </section>
@@ -426,6 +441,26 @@
             autoplay: true
         });
     });
+</script>
+<script>
+    function seleccionarServicio(idServicio) {
+        // Asignar el ID del servicio seleccionado al campo oculto
+        document.getElementById('id_service').value = idServicio;
+
+        // Mostrar el botón de enviar
+        document.getElementById('btnEnviar').style.display = 'block';
+    }
+
+    function enviarCotizacion() {
+        // Validar si se ha seleccionado un servicio antes de enviar el formulario
+        var idServicio = document.getElementById('id_service').value;
+        if (idServicio) {
+            // Enviar el formulario
+            document.getElementById('formCotizacion').submit();
+        } else {
+            alert('Por favor selecciona un servicio antes de enviar la cotización.');
+        }
+    }
 </script>
 <script src="{{ asset ('js/scripts.js') }}"></script>
 

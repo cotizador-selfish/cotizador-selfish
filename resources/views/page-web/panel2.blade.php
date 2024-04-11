@@ -20,7 +20,7 @@
             </div>
         </div>
     </section>
-    <form id="cotizacionForm" action="{{ route('crear_cotizacion') }}" method="POST">
+        <form method="POST" action="{{ route('crear_cotizacion') }}">
         @csrf
         <section class="gral-content">
             @foreach ($datos as $key => $dato)
@@ -38,12 +38,12 @@
         </section>
         <section>
             <div class="btn-space">
-                <button type="button" class="back-btn" onclick="window.location.href = '/home';">&#129044; ANTERIOR</button>
+                <button type="submit" name="accion" value="anterior" class="back-btn">&#129044; ANTERIOR</button>
                 <div class="price-service" id="cantidadTotal">
                     <h4 id="totalAmountValue">0.00 MXN</h4>
                     <p style="color:#999999;">*Precio aplicable en México</p>
                 </div>
-                <button type="submit" class="next-btn" onclick="window.location.href = '/page-web/panel3';">SIGUIENTE &#10142;</button>
+                <button type="submit" name="accion" value="siguiente" class="next-btn">SIGUIENTE &#10142;</button>
             </div>
         </section>
     </form>

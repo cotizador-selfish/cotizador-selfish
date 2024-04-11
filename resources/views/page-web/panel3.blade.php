@@ -20,7 +20,7 @@
             </div>
         </div>
     </section>
-    <form action="{{ route('crear_cotizacion') }}" method="POST">
+    <form method="POST" action="{{ route('cotizacion.guardar', ['paso' => 3]) }}">
         @csrf
         <section class="features-content">
             <div class="feature-marg">
