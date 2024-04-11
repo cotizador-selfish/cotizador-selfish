@@ -110,11 +110,18 @@ Route::get('/custom-system/custom8', [Custom8Controller::class, 'index'])->name(
 Route::get('/custom-system/custom9', [Custom9Controller::class, 'index'])->name('custom9');
 Route::get('/custom-system/custom10', [Custom10Controller::class, 'index'])->name('custom10');
 
+Route::get('/cotizacion', [CotizacionController::class, 'index'])->name('cotizacion');
+
+
 /* Ruta para la creacion de la cotizacion */
 Route::post('/crear_cotizacion', [CotizacionController::class, 'crear'])->name('crear_cotizacion');
 
 /* Ruta para mostrar la cotizacion */
 Route::get('/cotizacion/{id}', 'CotizacionController@mostrar')->name('mostrar');
+
+
+
+
 
 
 
