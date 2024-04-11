@@ -20,15 +20,14 @@
                     <dotlottie-player src="{{ asset('lottie/01-header.json') }}" background="transparent" speed="1" direction="1" play-mode="normal" loop autoplay></dotlottie-player>
                 </div>
                 <div class="pad-bottom">
-                    <h1>COTIZA<br><span style="font-weight: 300; font-size:50px; font-family:Poppins; color: white">TU PROYECTO</span></h1>
+                    <h1>COTIZA<br><span style="font-family: 'Poppins', sans-serif !important; font-size: 50px; font-weight: 300; line-height: 75px; letter-spacing: 1px; text-align: left; color: #FFFFFF;">TU PROYECTO</span></h1>
 
-                    <p style="color: white;">Obtén un presupuesto aproximado de diseño y desarrollo a la medida.</p>
-                    <button onclick="scrollToSection('section-2')" class="button">COMENZAR &darr;</button>
+                    <p style="color: white; font-family: 'Poppins', sans-serif !important; font-size: 14px; font-weight: 400; line-height: 21px; text-align: left;">Obtén un presupuesto aproximado de diseño y desarrollo a la medida.</p>
+                    <button onclick="scrollToSection('section-2')" class="button" style="margin: 20px 0px 20px 0px;">COMENZAR <span class="arrow-down">&#8595;</span></button>
                 </div>
             </div>
         </div>
     </section>
-
 
     <section id="section-2">
         @if (session('error'))
@@ -49,9 +48,9 @@
                     <div class="principal-services">
                         <img class="services-img" src="{{ htmlspecialchars($dato->img) }}" alt="">
                         <h5>{{ htmlspecialchars($dato->service) }}</h5>
-                        <p>{{ htmlspecialchars($dato->description) }}</p>
+                        <p style="font-family: 'Poppins', sans-serif !important; font-size: 14px; font-weight: 400; line-height: 21px; text-align: center;">{{ htmlspecialchars($dato->description) }}</p>
                         <div>
-                            <p>Desde: ${{ htmlspecialchars($dato->price) }}</p>
+                            <p style="display: none;">Desde: ${{ htmlspecialchars($dato->price) }}</p>
                         </div>
                     </div>
                 </a>
@@ -193,7 +192,7 @@
                 </div>
             </div>
             <div class="btn-sect3">
-                <button class="button" id="toggleButton">VER TODO &rarr;</button>
+                <button class="button" id="toggleButton">VER TODO <span class="arrow-right">&rarr;</button>
             </div>
         </div>
     </section>
@@ -202,9 +201,8 @@
             <div class="container-right">
                 <h6 style="color: #A18D57;">¿CUANTO COSTARA?</h6>
                 <h3>COTIZACION DE SITIOS WEB EN MEXICO</h3>
-                <p>Hoy en día con la era digital, es imprescindible que cualquier empresa o negocio en México cuente con una sólida presencia en línea. Un sitio web bien diseñado y funcional es una herramienta fundamental para lograrlo; sin embargo, muchas empresas se preguntan cuánto les costaría crear un sitio web profesionaly eficaz.</p>
-                <p>En esta guía, analizamos el proceso de cotización de Selfish, detallando los factores que afectan el costo y ofreciendo consejos para obtener una propuesta competitiva y de alta calidad</p>
-                <button onclick="scrollToSection('section-2')" class="button">QUIERO COTIZAR &uarr;</button>
+                <p>Hoy en día con la era digital, es imprescindible que cualquier empresa o negocio en México cuente con una sólida presencia en línea. Un sitio web bien diseñado y funcional es una herramienta fundamental para lograrlo; sin embargo, muchas empresas se preguntan cuánto les costaría crear un sitio web profesionaly eficaz.<br><br>En esta guía, analizamos el proceso de cotización de Selfish, detallando los factores que afectan el costo y ofreciendo consejos para obtener una propuesta competitiva y de alta calidad</p>
+                <button onclick="scrollToSection('section-2')" class="button">QUIERO COTIZAR <span class="arrow-up">&uarr;</button>
             </div>
             <div class="container-left" id="lottie-2">
                 <dotlottie-player class="lottie-SEO" src="{{ asset ('lottie/Header.json') }}" background="transparent" speed="1" direction="1" playMode="normal" loop autoplay></dotlottie-player>
@@ -222,8 +220,9 @@
                 <h3>LA IMPORTANCIA DE LA PRESENCIA EN LINEA</h3>
                 <br>
                 <br>
-                <p>En el actual y competitivo entorno empresarial, tener una presencia en línea es esencial para atraer a posibles clientes y hacer crecer un negocio. Un sitio web profesional es una herramienta fundamental para lograrlo, ya que permite mostrar los productos y servicios de una empresa de manera eficaz.</p>
-                <p>En esta guía, abordaremos el proceso de cotización de sitios web en México, desde los elementos que inciden en el costo hasta los aspectos clave que deben considerarse para obtener una cotización competitiva y de calidad.</p>
+                <p>En el actual y competitivo entorno empresarial, tener una presencia en línea es esencial para atraer a posibles clientes y hacer crecer un negocio. Un sitio web profesional es una herramienta fundamental para lograrlo, ya que permite mostrar los productos y servicios de una empresa de manera eficaz.<br>
+                    <br>En esta guía, abordaremos el proceso de cotización de sitios web en México, desde los elementos que inciden en el costo hasta los aspectos clave que deben considerarse para obtener una cotización competitiva y de calidad.
+                </p>
             </div>
         </div>
         <div class="content3-SEO">
@@ -317,7 +316,7 @@
             </div>
         </div>
         <div class="button-footer">
-            <button onclick="scrollToSection('section-2')" class="button">QUIERO COTIZAR &uarr;</button>
+            <button onclick="scrollToSection('section-2')" class="button">QUIERO COTIZAR <span class="arrow-up">&uarr;</button>
         </div>
 
         <div class="content1-SEO">
@@ -429,6 +428,5 @@
     });
 </script>
 <script src="{{ asset ('js/scripts.js') }}"></script>
-
 
 </html>

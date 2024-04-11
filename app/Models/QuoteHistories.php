@@ -20,6 +20,6 @@ class QuoteHistories extends Model
 
     public function services()
     {
-        return $this->belongsTo(Services::class, 'ID');
+        return $this->belongsTo(Services::class, 'id_service,ID');
     }
 }
