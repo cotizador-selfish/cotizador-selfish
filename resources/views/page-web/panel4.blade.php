@@ -19,39 +19,33 @@
                 <p>Cantidad de páginas de contenido que redactaremos para ti.</p>
             </div>
     </section>
-    <section class="gral-content">
-        @foreach ($datos as $key => $dato)
-        <a style="text-decoration: none;">
-            <form action="{{ route('crear') }}" method="POST">
-                @csrf
+    <form action="{{ route('crear_cotizacion') }}" method="POST">
+        @csrf
+        <section class="gral-content">
+            @foreach ($datos as $key => $dato)
+            <a style="text-decoration: none;">
                 <input type="hidden" name="quotes_histories" value="{{ $dato->ID }}">
                 <div class="option-card" id="myButton{{ $key }}" onclick="toggleSelected('{{ $key }}', '{{ $dato->price }}')">
-                    <div style="border-bottom: 1px solid #000;">
+                    <div style="border-bottom: 1px solid #999999;">
                         <img src="{{ asset ('img/dots_icon.png') }}" alt="">
                     </div>
                     <h2 style="text-align: center; margin-top: 10px;">{{ htmlspecialchars($dato->pages) }}</h2>
                 </div>
-                <p class="style-pcard">$ {{ htmlspecialchars(number_format($dato->price, 2, '.', ',')) }} MXN</p>
-            </form>
-        </a>
-        @endforeach
-    </section>
-    <section>
-        <div class="btn-space">
-            <form action="/panel3">
+                <p>$ {{ htmlspecialchars(number_format($dato->price, 2, '.', ',')) }} MXN</p>
+            </a>
+            @endforeach
+        </section>
+        <section>
+            <div class="btn-space">
                 <button class="back-btn" onclick="window.location.href = '/page-web/panel3';">&#129044; ANTERIOR</button>
-            </form>
-            <div class="price-service" id="cantidadTotal">
-                <h4 id="totalAmountValue">0.00 MXN</h4>
-                <p style="color:#999999;">*Precio aplicable en México</p>
-            </div>
-            <form action="{{ route('crear') }}" method="POST">
+                <div class="price-service" id="cantidadTotal">
+                    <h4 id="totalAmountValue">0.00 MXN</h4>
+                    <p style="color:#999999;">*Precio aplicable en México</p>
+                </div>
                 <button type="submit" class="next-btn" onclick="window.location.href = '/page-web/panel5';">SIGUIENTE &#10142;</button>
-            </form>
-        </div>
-    </section>
-
-
+            </div>
+        </section>
+    </form>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset ('js/scripts.js') }}"></script>

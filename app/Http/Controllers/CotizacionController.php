@@ -22,7 +22,7 @@ class CotizacionController extends Controller
         //$this->middleware(NoCache::class);
     }
 
-    public function crear()
+    public function crear($Request)
     {
         // Lógica para crear una nueva cotización
     }

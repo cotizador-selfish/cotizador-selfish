@@ -34,7 +34,7 @@
             <div class="option-row option-hscard" id="myButton{{ $key }}" onclick="toggleSelected('{{ $key }}', '{{ $dato->price }}')">
                 <img class="option-img" src="{{ htmlspecialchars($dato->img) }}" alt="Descripción de la imagen">
                 <div class="option-text">
-                    <h4 style="margin-top:0px; margin-bottom: 10px; color:#000; text-transform: uppercase;">{{ htmlspecialchars($dato->title) }}</h4>
+                    <h6 style="margin-top:0px; margin-bottom: 10px; color:#000; text-transform: uppercase;">{{ htmlspecialchars($dato->title) }}</h6>
                     <p style="margin-top: -5px">{{ htmlspecialchars($dato->description) }}</p>
                 </div>
                 <div class="option-discount">

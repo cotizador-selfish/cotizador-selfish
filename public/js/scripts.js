@@ -188,11 +188,10 @@ function expandirColumna(columna) {
     // Define el mapeo de rutas a pasos
     const routeToStep = {
         "/home": 'Paso 1',
-        "/page-web/panel2": '2/6',
-        "/page-web/panel3": '3/6',
-        "/page-web/panel4": '4/6',
-        "/page-web/panel5": '5/6',
-        "/page-web/panel6": '6/6'
+        "/page-web/panel2": '2/5',
+        "/page-web/panel3": '3/5',
+        "/page-web/panel4": '4/5',
+        "/page-web/panel5": '5/5'
     };
 
     // Obtiene la ruta actual

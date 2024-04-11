@@ -31,40 +31,41 @@
 <body>
     <!-- Contenido del header, como navegación, logo, etc. -->
     <header class="header-content" id="header">
-    <a href="/home" title="Selfish">
-        <img class="logo-mobile-sticky scale-with-grid" src="https://cdn.selfish.com.mx/wp-content/uploads/2019/06/sselfish-logo-sticky-1.png" data-retina="https://cdn.selfish.com.mx/wp-content/uploads/2019/06/sselfish-logo-sticky-1.png" data-height="114" alt="sselfish-logo-sticky" data-no-retina="" style="max-height: 70px;">
-    </a>
-    <div class="progressbar-titles">
-        <div class="media-titles">
-            <h4 class="gradient-text">COTIZACIÓN</h4>
-            <h4 id="current-step">Paso 1</h4>
+        <a href="/home" title="Selfish">
+            <img class="logo-mobile-sticky scale-with-grid" src="https://cdn.selfish.com.mx/wp-content/uploads/2019/06/sselfish-logo-sticky-1.png" data-retina="https://cdn.selfish.com.mx/wp-content/uploads/2019/06/sselfish-logo-sticky-1.png" data-height="114" alt="sselfish-logo-sticky" data-no-retina="" style="max-height: 70px;">
+        </a>
+        <div class="progressbar-titles">
+            <div class="media-titles">
+                <h4 class="gradient-text">COTIZACIÓN</h4>
+                <h4 style="color: #F7F7F7;" id="current-step">Paso 1</h4>
+            </div>
+            <progress id="progress-bar" class="progress-bar custom-progress" max="100" value="0"></progress>
         </div>
-        <progress id="progress-bar" class="progress-bar custom-progress" max="100" value="0"></progress>
-    </div>
 
-    <div class="save-close">
-        <p style="display:flex; color:white;" id="headerTotalAmount">0.00 MXN</p>
-        <button type="button" class="btn-save" onclick="saveAndCloseQuotation()">Guardar y cerrar</button>
-    </div>
-</header>
-<script>
-    var prevScrollPos = window.pageYOffset;
-    var header = document.getElementById("header");
+        <div class="save-close">
+            <p style="display:flex; color:white;" id="headerTotalAmount">0.00 MXN</p>
+            <button type="button" class="btn-save" onclick="saveAndCloseQuotation()">Guardar y cerrar X</button>
+        </div>
+    </header>
+    <script>
+        var prevScrollPos = window.pageYOffset;
+        var header = document.getElementById("header");
 
-    window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollPos < currentScrollPos) {
-            // Oculta el encabezado al hacer scroll hacia abajo
-            header.style.top = "-" + header.offsetHeight + "px";
-        } else {
-            // Muestra el encabezado al hacer scroll hacia arriba
-            header.style.top = "0";
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollPos < currentScrollPos) {
+                // Oculta el encabezado al hacer scroll hacia abajo
+                header.style.top = "-" + header.offsetHeight + "px";
+            } else {
+                // Muestra el encabezado al hacer scroll hacia arriba
+                header.style.top = "0";
+            }
+            prevScrollPos = currentScrollPos;
         }
-        prevScrollPos = currentScrollPos;
-    }
-</script>
+    </script>
     <main role="main" class="flex-shrink-0">
         <!-- Aquí deberías incluir el contenido específico de tu aplicación -->
     </main>
     <script src="{{ asset ('js/scripts.js') }}"></script>
+
 </html>

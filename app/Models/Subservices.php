@@ -22,7 +22,7 @@ class Subservices extends Model
 
     public function Services()
     {
-        return $this->belongsTo(Services::class, 'ID');
+        return $this->belongsTo(Services::class, 'id_service,ID');
     }
 
     public function content_pages()

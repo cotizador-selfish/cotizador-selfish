@@ -22,7 +22,7 @@
         <div>
             <input type="hidden">
             <div class="option-card">
-                <div style="border-bottom: 1px solid #000;">
+                <div style="border-bottom: 1px solid #999999;">
                     <img src="/img/dots_icon.png" alt="">
                 </div>
                 <h3 style="text-align: center; margin-top: 25px;">Sí</h3>
@@ -32,7 +32,7 @@
         <div>
             <input type="hidden">
             <div class="option-card">
-                <div style="border-bottom: 1px solid #000;">
+                <div style="border-bottom: 1px solid #999999;">
                     <img src="/img/dots_icon.png" alt="">
                 </div>
                 <h3 style="text-align: center; margin-top: 25px;">No</h3>
@@ -42,7 +42,7 @@
         <div>
             <input type="hidden">
             <div class="option-card">
-                <div style="border-bottom: 1px solid #000;">
+                <div style="border-bottom: 1px solid #999999;">
                     <img src="/img/dots_icon.png" alt="">
                 </div>
                 <h3 style="text-align: center; margin-top: 25px;">No lo sé</h3>
