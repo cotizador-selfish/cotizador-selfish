@@ -242,6 +242,7 @@ header {
     border-radius: 10px;
     /*border-image: linear-gradient(to right, #F7F7F7, #F7F7F7) 1;*/
     transition: border-color 1.5s;
+    cursor: pointer;
 }
 
 .principal-services:hover {
