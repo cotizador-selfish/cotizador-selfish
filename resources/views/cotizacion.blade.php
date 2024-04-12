@@ -29,31 +29,21 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí se irán agregando las filas automáticamente -->
-                <tr>
-                    <td>
-                        <p><!-- resources/views/cotizacion/mostrar.blade.php -->
+                <tr>    <!-- Aquí se irán agregando las filas automáticamente -->
+                        <!-- Lógica para mostrar detalles de cada servicio seleccionado -->
+                    <td>@if(isset($_GET['id_servicio']))
+                        {{ $_GET['id_servicio'] }}
+                        @else
+                        <td colspan="2">No se ha seleccionado ningún servicio.</td>
+                        @endif
+                    </td>
 
-                            @extends('layouts.app') <!-- Suponiendo que utilizas un layout principal llamado 'app.blade.php' -->
-
-                            @section('content')
-                        <div class="cotizacion-details">
-                            <h2>Detalles de la Cotización</h2>
-                            <p><strong>ID:</strong> {{ $cotizacion->id }}</p>
-                            <p><strong>Dirección IP:</strong> {{ $cotizacion->ip_address }}</p>
-                            <p><strong>ID del Servicio:</strong> {{ $cotizacion->id_service }}</p>
-                            <!-- Agrega más detalles de la cotización según sea necesario -->
-                        </div>
-                        @endsection
-                        </p>
-                        <button class="round-button" onclick="iniciarCotizacion()">+</button>
-                    </td>
-                    <td>
-                        <button class="round-button" onclick="iniciarCotizacion()">+</button>
-                    </td>
-                    <td>
-                        <button class="round-button" onclick="iniciarCotizacion()">+</button>
-                    </td>
+                <td>
+                    <button class="round-button" onclick="iniciarCotizacion()">+</button>
+                </td>
+                <td>
+                    <button class="round-button" onclick="iniciarCotizacion()">+</button>
+                </td>
                 </tr>
 
             </tbody>

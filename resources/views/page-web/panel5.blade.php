@@ -23,7 +23,7 @@
     <section class="features-content">
         <img class="banner" src="{{ asset ('img/Banner.webp') }}" alt="">
     </section>
-    <form action="{{ route('crear_cotizacion') }}" method="POST">
+    <form method="POST" action="{{ route('crear_cotizacion') }}" id="formCotizacion">
         @csrf
         <section class="features-content">
             @foreach ($datos as $key => $dato)
@@ -31,11 +31,10 @@
                 <button class="toggle-button helpme-choose" data-target="{{ $key }}">Ayúdame a elegir</button>
             </div>
             <div class="option-container">
-                <input type="hidden" name="quotes_histories" value="{{ $dato->ID }}">
                 <div class="option-row option-hscard" id="myButton{{ $key }}" onclick="toggleSelected('{{ $key }}', '{{ $dato->price }}')">
                     <img class="option-img" src="{{ htmlspecialchars($dato->img) }}" alt="Descripción de la imagen">
                     <div class="option-text">
-                        <h6 style="margin-top:0px; margin-bottom: 10px; color:#000; text-transform: uppercase;">{{ htmlspecialchars($dato->title) }}</h6>
+                        <h6 style="margin-top:0px; margin-bottom: 10px; color:#000; text-transform: uppercase;" onclick="seleccionarServicio('{{ $dato->ID }}', '{{ $dato->price }}')" >{{ htmlspecialchars($dato->title) }}</h6>
                         <p style="margin-top: -5px; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; text-align: left; color: #999999;">{{ htmlspecialchars($dato->description) }}</p>
                     </div>
                     <div class="option-discount">
@@ -64,6 +63,8 @@
                 </div>
             </div>
             @endforeach
+            <!-- Campo oculto para almacenar el ID del servicio seleccionado -->
+        <input type="hidden" id="id_service" name="id_service">
         </section>
         <section>
             <div class="btn-space">
@@ -72,11 +73,38 @@
                     <h4 id="totalAmountValue">0.00 MXN</h4>
                     <p style="color:#999999;">*Precio aplicable en México</p>
                 </div>
-                <button type="submit" class="next-btn" onclick="window.location.href = '/cotizacion';">SIGUIENTE &#10142;</button>
+                <button type="button" id="btnSiguiente" onclick="terminarCotizacion()" style="display: none;" class="next-btn">SIGUIENTE &#10142;</button>
             </div>
         </section>
     </form>
 </body>
+<script>
+    // Función para seleccionar un servicio y terminar la cotización
+    function seleccionarServicio(idServicio, precio) {
+        // Asignar el ID del servicio seleccionado al campo oculto
+        document.getElementById('id_service').value = idServicio;
+
+        // Llamar a la función para terminar la cotización
+        terminarCotizacion();
+    }
+
+    // Función para terminar la cotización (enviar el formulario)
+    function terminarCotizacion() {
+        // Obtener el ID del servicio seleccionado
+        var idServicio = document.getElementById('id_service').value;
+
+        // Verificar si se ha seleccionado un servicio
+        if (idServicio) {
+            // Hacer submit del formulario
+            document.getElementById('formCotizacion').submit();
+        } else {
+            // Mostrar un mensaje de error si no se ha seleccionado ningún servicio
+            alert('Por favor selecciona un servicio antes de continuar.');
+        }
+    }
+</script>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset ('js/scripts.js') }}"></script>
 

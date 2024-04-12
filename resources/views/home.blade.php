@@ -52,24 +52,20 @@
                         <p style="display: none;">Desde: ${{ htmlspecialchars($dato->price) }}</p>
                     </div>
                     @endforeach
+                    <a href="https://selfish.com.mx/servicios">
+                        <div class="principal-services">
+                            <img class="services-img" src="https://cotizador.selfish.com.mx/public/img/Otros.webp" alt="">
+                            <h5>Otros servicios</h5>
+                            <p style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; text-align: center;">Aplicaciones moviles, Branding, Motion graphics, etc.</p>
+                            <div>
+                                <p style="display: none;">Desde: </p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-
                 <!-- Campo oculto para almacenar el ID del servicio seleccionado -->
                 <input type="hidden" id="id_service" name="id_service">
-
-                <!-- Botón "Enviar Cotización" -->
-                <button type="button" id="btnEnviar" onclick="enviarCotizacion()" style="display: none;">Enviar Cotización</button>
             </form>
-            <a href="https://selfish.com.mx/servicios">
-                <div class="principal-services">
-                    <img class="services-img" src="https://cotizador.selfish.com.mx/public/img/Otros.webp" alt="">
-                    <h5>Otros servicios</h5>
-                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; text-align: center;">Aplicaciones moviles, Branding, Motion graphics, etc.</p>
-                    <div>
-                        <p style="display: none;">Desde: </p>
-                    </div>
-                </div>
-            </a>
         </div>
         </div>
 
@@ -443,25 +439,45 @@
     });
 </script>
 <script>
-    function seleccionarServicio(idServicio) {
-        // Asignar el ID del servicio seleccionado al campo oculto
-        document.getElementById('id_service').value = idServicio;
+function seleccionarServicio(idServicio) {
+    var selectedServiceIds = []; // Lista de IDs de servicios seleccionados
 
-        // Mostrar el botón de enviar
-        document.getElementById('btnEnviar').style.display = 'block';
-    }
-
-    function enviarCotizacion() {
-        // Validar si se ha seleccionado un servicio antes de enviar el formulario
-        var idServicio = document.getElementById('id_service').value;
-        if (idServicio) {
-            // Enviar el formulario
-            document.getElementById('formCotizacion').submit();
-        } else {
-            alert('Por favor selecciona un servicio antes de enviar la cotización.');
+    // Obtener la lista de IDs de servicios seleccionados de localStorage
+    var storedValue = localStorage.getItem('selectedServiceIds');
+    if (storedValue) {
+        try {
+            selectedServiceIds = JSON.parse(storedValue);
+        } catch (error) {
+            console.error('Error al parsear JSON en localStorage:', error);
+            // Manejar el error de parseo de JSON
         }
     }
+
+    // Agregar el ID del servicio actual a la lista de IDs seleccionados
+    selectedServiceIds.push(idServicio);
+
+    // Guardar la lista actualizada de IDs de servicios seleccionados en localStorage
+    localStorage.setItem('selectedServiceIds', JSON.stringify(selectedServiceIds));
+
+    const urlsPorServicio = {
+        1: '/page-lading/lading2',
+        2: '/page-web/panel2',
+        3: '/e-commerce/ecommerce2',
+        4: '/product-catalog/product2',
+        5: '/custom-system/custom2'
+    };
+
+    if (urlsPorServicio[idServicio]) {
+        // Redirigir a la URL correspondiente al ID del servicio seleccionado
+        window.location.href = `${urlsPorServicio[idServicio]}?id=${idServicio}`;
+    } else {
+        console.error(`No se encontró una URL para el servicio con ID ${idServicio}`);
+        // Redirigir a una página de error en caso de no encontrar la URL asociada
+        window.location.href = '/error';
+    }
+}
 </script>
+
 <script src="{{ asset ('js/scripts.js') }}"></script>
 
 </html>
