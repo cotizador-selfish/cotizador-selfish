@@ -30,7 +30,7 @@
                     </div>
                     <h2 style="text-align: center; margin-top: 10px;">{{ htmlspecialchars($dato->pages) }}</h2>
                 </div>
-                <p>$ {{ htmlspecialchars(number_format($dato->price, 2, '.', ',')) }} MXN</p>
+                <p style="display: flex; justify-content: center;">$ {{ htmlspecialchars(number_format($dato->price, 2, '.', ',')) }} MXN</p>
             </a>
             @endforeach
             <!-- Campo oculto para almacenar el ID del servicio seleccionado -->

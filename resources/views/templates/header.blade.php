@@ -37,7 +37,7 @@
         <div class="progressbar-titles">
             <div class="media-titles">
                 <h6 class="gradient-text">COTIZACIÓN</h6>
-                <p style="color: #F7F7F7;" id="current-step">Paso 1</p>
+                <p style="color: #F7F7F7; margin: 43.94px 0px;" id="current-step">Paso 1</p>
             </div>
             <progress id="progress-bar" class="progress-bar custom-progress" max="100" value="0"></progress>
         </div>
