@@ -47,7 +47,7 @@
                     @foreach ($datos->take(5) as $dato)
                     <div class="principal-services" onclick="seleccionarServicio('{{ $dato->ID }}')">
                         <img class="services-img" src="{{ htmlspecialchars($dato->img) }}" alt="">
-                        <h5>{{ htmlspecialchars($dato->service) }}</h5>
+                        <h6>{{ htmlspecialchars($dato->service) }}</h6>
                         <p style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; text-align: center;">{{ htmlspecialchars($dato->description) }}</p>
                         <p style="display: none;">Desde: ${{ htmlspecialchars($dato->price) }}</p>
                     </div>
